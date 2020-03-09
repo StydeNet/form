@@ -1,0 +1,31 @@
+{
+    "name": "styde/form",
+    "description": "Advanced form generation for Laravel",
+    "type": "library",
+    "require": {
+        "php": "^7.2.5",
+        "laravel/framework": "7.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5",
+        "orchestra/testbench": "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Styde\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Duilio Palacios",
+            "email": "duilio@styde.net"
+        }
+    ],
+    "minimum-stability": "stable"
+}
