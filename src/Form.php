@@ -6,6 +6,6 @@ class Form
 {
     public function render()
     {
-        return '<form></form>';
+        return view('styde-form::form');
     }
 }

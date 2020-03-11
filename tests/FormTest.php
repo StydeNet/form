@@ -11,6 +11,6 @@ class FormTest extends TestCase
     {
         $form = new Form;
 
-        $this->assertSame('<form></form>', $form->render());
+        $this->assertSame('<form></form>', trim($form->render()->toHtml()));
     }
 }
