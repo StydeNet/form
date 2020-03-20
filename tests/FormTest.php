@@ -2,25 +2,49 @@
 
 namespace Tests;
 
-use Illuminate\Support\Facades\File;
-use Styde\Form;
+use Illuminate\Support\Facades\Session;
 
 class FormTest extends TestCase
 {
     /** @test */
-    function renders_a_form()
+    function renders_a_form_with_get_method()
     {
-        $form = new Form;
-
-        $this->assertSame('<form></form>', trim($form->render()->toHtml()));
+        $this->assertTemplateRenders(
+            '<form method="get"></form>',
+            '<x-form></x-form>'
+        );
     }
 
     /** @test */
-    function a_template_can_render_a_form_component()
+    function renders_a_form_with_post_method()
     {
+        Session::start();
+
         $this->assertTemplateRenders(
-            '<form></form>',
-            '<x-form></x-form>'
+            sprintf('<form method="post"><input type="hidden" name="_token" value="%s"></form>', Session::token()),
+            '<x-form method="post"></x-form>'
+        );
+    }
+
+    /** @test */
+    function renders_a_form_with_put_method()
+    {
+        $this->markTestIncomplete('Complete test!');
+
+        $this->assertTemplateRenders(
+            '<form method="post"><input type="hidden" name="_method" value="put"></form>',
+            '<x-form method="put"></x-form>'
+        );
+    }
+
+    /** @test */
+    function renders_a_form_with_patch_method()
+    {
+        $this->markTestIncomplete('Complete test!');
+
+        $this->assertTemplateRenders(
+            '<form method="post"><input type="hidden" name="_method" value="patch"></form>',
+            '<x-form method="patch"></x-form>'
         );
     }
 
@@ -32,7 +56,12 @@ class FormTest extends TestCase
 
         $this->assertSame(
             $expectedHtml,
-            trim($this->app->view->make('_test::'.md5($actualTemplate))->toHtml())
+            $this->removeExtraSpaces($this->app->view->make('_test::'.md5($actualTemplate))->toHtml())
         );
+    }
+
+    protected function removeExtraSpaces(string $html)
+    {
+        return trim(preg_replace('/\s{2,}/', '', $html));
     }
 }
