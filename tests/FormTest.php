@@ -2,8 +2,6 @@
 
 namespace Tests;
 
-use Illuminate\Support\Facades\Session;
-
 class FormTest extends TestCase
 {
     /** @test */
@@ -18,34 +16,38 @@ class FormTest extends TestCase
     /** @test */
     function renders_a_form_with_post_method()
     {
-        Session::start();
-
         $this->assertTemplateRenders(
-            sprintf('<form method="post"><input type="hidden" name="_token" value="%s"></form>', Session::token()),
+            sprintf('<form method="post">%s</form>', $this->csrfField()),
             '<x-form method="post"></x-form>'
         );
     }
 
-    /** @test */
-    function renders_a_form_with_put_method()
+    protected function csrfField()
     {
-        $this->markTestIncomplete('Complete test!');
+        $this->startSession();
 
+        return sprintf('<input type="hidden" name="_token" value="%s">', $this->app['session']->token());
+    }
+
+    /**
+     * @test
+     * @dataProvider spoofedMethods
+     */
+    function renders_a_form_with_put_method($method)
+    {
         $this->assertTemplateRenders(
-            '<form method="post"><input type="hidden" name="_method" value="put"></form>',
-            '<x-form method="put"></x-form>'
+            sprintf('<form method="post">%s<input type="hidden" name="_method" value="%s"></form>', $this->csrfField(), $method),
+            sprintf('<x-form method="%s"></x-form>', $method)
         );
     }
 
-    /** @test */
-    function renders_a_form_with_patch_method()
+    public function spoofedMethods()
     {
-        $this->markTestIncomplete('Complete test!');
-
-        $this->assertTemplateRenders(
-            '<form method="post"><input type="hidden" name="_method" value="patch"></form>',
-            '<x-form method="patch"></x-form>'
-        );
+        return [
+            ["put"],
+            ["patch"],
+            ["delete"],
+        ];
     }
 
     protected function assertTemplateRenders($expectedHtml, $actualTemplate)
