@@ -12,5 +12,6 @@ class FormServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views/', 'styde-form');
 
         Blade::component('Styde\Form', 'form');
+        Blade::component('Styde\Field', 'field');
     }
 }
