@@ -27,7 +27,7 @@ class Field extends Component
         $this->config = $config;
     }
 
-    public function highlightsRequirement()
+    public function highlightsRequired()
     {
         return $this->config->get('form.highlights_requirement') === 'required' && $this->required;
     }

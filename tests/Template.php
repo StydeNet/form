@@ -64,6 +64,13 @@ class Template
         );
     }
 
+    public function assertContain($expectedHtml)
+    {
+        PHPUnit::assertStringContainsString($expectedHtml, $this->render());
+
+        return $this;
+    }
+
     private function render()
     {
         file_put_contents($this->viewsDirectory.md5($this->content).'.blade.php', $this->content);
