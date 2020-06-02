@@ -4,12 +4,12 @@
     "type": "library",
     "require": {
         "php": "^7.2.5",
-        "laravel/framework": "7.*",
-        "gajus/dindent": "^2.0"
+        "laravel/framework": "7.*"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5",
-        "orchestra/testbench": "5.*"
+        "orchestra/testbench": "5.*",
+        "gajus/dindent": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -28,5 +28,10 @@
             "email": "duilio@styde.net"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": ["Styde\\FormServiceProvider"]
+        }
+    }
 }
