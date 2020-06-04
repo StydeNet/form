@@ -6,7 +6,7 @@ use Gajus\Dindent\Indenter;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-    public function getPackageProviders()
+    public function getPackageProviders($app)
     {
         return [
             'Styde\FormServiceProvider'
