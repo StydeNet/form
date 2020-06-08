@@ -21,13 +21,13 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.composer/cache/files
-          key: os-${{ matrix.os }}-php${{ matrix.php }}-composer-${{ hashFiles('composer.lock') }}
+          key: os-${{ matrix.os }}-php${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           extensions: mbstring, fileinfo
       - name: Install dependencies
-        run: composer install --prefer-dist --no-interaction
+        run: composer update --prefer-dist --no-interaction
       - name: Run tests
         run: vendor/bin/phpunit
