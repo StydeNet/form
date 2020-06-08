@@ -9,6 +9,7 @@ on:
 jobs:
   tests:
     strategy:
+      fail-fast: true
       matrix:
         os: [ubuntu-latest, windows-latest]
         php: [7.2, 7.3, 7.4]
@@ -25,7 +26,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: mbstring
+          extensions: mbstring, fileinfo
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction
       - name: Run tests
