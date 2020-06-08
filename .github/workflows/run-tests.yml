@@ -8,14 +8,23 @@ on:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        php: [7.2, 7.3, 7.4]
+    runs-on: ${{ matrix.os }}
     name: Test
     steps:
       - uses: actions/checkout@v2
+      - name: Cache Composer Packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.composer/cache/files
+          key: os-${{ matrix.os }}-php${{ matrix.php }}-composer-${{ hashFiles('composer.lock') }}
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.2
+          php-version: ${{ matrix.php }}
           extensions: mbstring
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction
