@@ -46,9 +46,9 @@ class FormTest extends TestCase
     public function spoofedMethods()
     {
         return [
-            ["put"],
-            ["patch"],
-            ["delete"],
+            ['put'],
+            ['patch'],
+            ['delete'],
         ];
     }
 }
