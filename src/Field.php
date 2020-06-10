@@ -27,12 +27,14 @@ class Field extends Component
         $this->config = $config;
     }
 
-    public function highlightsRequired() { return $this->config->get('form.highlights_requirement') === 'required' && $this->required;
+    public function highlightsRequired()
+    {
+        return $this->config->get('form.highlights_requirement') === 'required' && $this->required;
     }
 
     public function highlightsOptional()
     {
-return $this->config->get('form.highlights_requirement') === 'optional' && ! $this->required;
+        return $this->config->get('form.highlights_requirement') === 'optional' && ! $this->required;
     }
 
     public function render()
