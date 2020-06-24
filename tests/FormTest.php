@@ -14,10 +14,16 @@ class FormTest extends TestCase
     }
 
     /** @test */
-    function renders_a_form_with_post_method()
-    {
-        $this->makeTemplate('<x-form method="post"></x-form>')
+    function renders_a_form_with_post_method() {
+$this->makeTemplate('<x-form method="post"></x-form>')
             ->assertRender(sprintf('<form method="post">%s</form>', $this->csrfField()));
+    }
+
+    /** @test */
+    function renders_a_form_with_fields()
+    {
+        $this->makeTemplate('<x-form><input></x-form>')
+            ->assertRender('<form method="get"><input></form>');
     }
 
     protected function csrfField()

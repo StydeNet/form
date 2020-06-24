@@ -5,4 +5,6 @@
     @if ($spoofedMethod())
         <input type="hidden" name="_method" value="{{ $method }}">
     @endif
+
+    {{ $slot }}
 </form>
