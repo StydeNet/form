@@ -20,6 +20,13 @@ class FormTest extends TestCase
             ->assertRender(sprintf('<form method="post">%s</form>', $this->csrfField()));
     }
 
+    /** @test */
+    function renders_a_form_with_fields()
+    {
+        $this->makeTemplate('<x-form><input></x-form>')
+            ->assertRender('<form method="get"><input></form>');
+    }
+
     protected function csrfField()
     {
         $this->startSession();
