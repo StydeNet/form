@@ -27,7 +27,7 @@ class FieldPasswordTest extends TestCase
         ')->assertRender('
             <div class="form-group required">
                 <label for="name"> Name <span class="badge badge-danger">required</span> </label>
-                <input name="name" type="password" required="required" class="form-control" id="name">
+                <input name="name" type="password" class="form-control" required="required" id="name">
             </div>
         ');
     }

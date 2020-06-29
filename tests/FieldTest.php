@@ -32,7 +32,7 @@ class FieldTest extends TestCase
             ->assertRender('
               <div class="form-group required">
                 <label for="email"> Email </label>
-                <input name="email" type="email" required="required" class="form-control" id="email">
+                <input name="email" type="email" class="form-control" required="required" id="email">
               </div>
             ');
     }
@@ -49,7 +49,7 @@ class FieldTest extends TestCase
                     Email
                     <span class="badge badge-danger">required</span>
                 </label>
-                <input name="email" type="email" required="required" class="form-control" id="email">
+                <input name="email" type="email" class="form-control" required="required" id="email">
               </div>
             ');
     }
