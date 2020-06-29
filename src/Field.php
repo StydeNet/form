@@ -1,6 +1,6 @@
 <?php
 
-namespace Styde;
+namespace Styde\Form;
 
 use Illuminate\Config\Repository;
 use Illuminate\View\Component;
@@ -11,6 +11,10 @@ class Field extends Component
      * @var string
      */
     public $name;
+    /**
+     * @var string
+     */
+    public $type = 'text';
     /**
      * @var bool
      */

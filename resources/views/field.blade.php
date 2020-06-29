@@ -7,5 +7,5 @@
             <span class="badge badge-info">{{ __('optional') }}</span>
         @endif
     </label>
-    <input name="{{ $name }}" {{ $attributes->merge(['type' => 'text', 'required' => $required]) }} class="form-control" id="{{ $name }}">
+    <input name="{{ $name }}" {{ $attributes->merge(['type' => $type, 'required' => $required]) }} class="form-control" id="{{ $name }}">
 </div>
