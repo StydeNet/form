@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label for="{{ $name }}"> {{ ucfirst($name) }} </label>
+    <label for="{{ $name }}"> {{ $label }} </label>
     <select
         {{ $attributes->merge(['class' => $classes, 'required' => $required, 'id' => $name, 'multiple' => $multiple]) }} name="{{ $name }}">
         <option>{{ $placeholder }}</option>

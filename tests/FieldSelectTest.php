@@ -67,10 +67,4 @@ class FieldSelectTest extends TestCase
             </div>
         ');
     }
-
-    /** @test */
-    function renders_a_multiple_select_field_with_optgroup()
-    {
-        $this->markTestIncomplete('Coming soon');
-    }
 }
