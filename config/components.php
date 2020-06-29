@@ -8,5 +8,6 @@ return [
     \Styde\Form\NumberField::class => 'field-number',
     \Styde\Form\SelectField::class => 'field-select',
     \Styde\Form\CheckboxField::class => 'field-checkbox',
-    \Styde\Form\RadioField::class => 'field-radio'
+    \Styde\Form\RadioField::class => 'field-radio',
+    \Styde\Form\TextAreaField::class => 'field-textarea'
 ];
