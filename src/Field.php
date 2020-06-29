@@ -28,16 +28,21 @@ class Field extends Component
      */
     public $id;
     /**
+     * @var string
+     */
+    public $help;
+    /**
      * @var Repository
      */
     private $config;
 
-    public function __construct(Repository $config, string $name, $required = false, $id = null, $label = null)
+    public function __construct(Repository $config, string $name, $required = false, $id = null, $label = null, $help = null)
     {
         $this->name = $name;
         $this->label = $label;
         $this->required = $required;
         $this->id = $id;
+        $this->help = $help;
         $this->config = $config;
     }
 
@@ -58,6 +63,11 @@ class Field extends Component
         }
 
         return ucfirst(str_replace('_', ' ', $this->name));
+    }
+
+    public function classes()
+    {
+        return 'form-control';
     }
 
     public function render()
