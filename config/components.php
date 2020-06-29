@@ -12,5 +12,6 @@ return [
     \Styde\Form\TextAreaField::class => 'field-textarea',
     \Styde\Form\FileField::class => 'field-file',
     \Styde\Form\SubmitButton::class => 'submit',
-    \Styde\Form\RangeField::class => 'field-range'
+    \Styde\Form\RangeField::class => 'field-range',
+    \Styde\Form\SwitchField::class => 'field-switch'
 ];
