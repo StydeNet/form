@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Styde\\": "src/"
+            "Styde\\Form\\": "src/"
         }
     },
     "autoload-dev": {
@@ -32,7 +32,7 @@
     "minimum-stability": "stable",
     "extra": {
         "laravel": {
-            "providers": ["Styde\\FormServiceProvider"]
+            "providers": ["Styde\\Form\\FormServiceProvider"]
         }
     }
 }
