@@ -17,7 +17,7 @@ class FieldSelectTest extends TestCase
                 'mazda' => 'Mazda'
             ])
             ->assertRender('
-            <div class="form-group">
+            <div class="form-group optional">
                 <label for="brands"> Brands </label>
                 <select class="custom-select" id="brands" name="brands">
                     <option>-</option>
@@ -35,7 +35,7 @@ class FieldSelectTest extends TestCase
         $this->makeTemplate('
             <x-field-select name="brands" empty="Seleccione"></x-field-select>
         ')->assertRender('
-            <div class="form-group">
+            <div class="form-group optional">
                 <label for="brands"> Brands </label>
                 <select class="custom-select" id="brands" name="brands">
                     <option>Seleccione</option>
@@ -56,7 +56,7 @@ class FieldSelectTest extends TestCase
                 'mazda' => 'Mazda'
             ])
             ->assertRender('
-            <div class="form-group">
+            <div class="form-group optional">
                 <label for="brands"> Brands </label>
                 <select class="custom-select" id="brands" multiple="multiple" name="brands">
                     <option>-</option>

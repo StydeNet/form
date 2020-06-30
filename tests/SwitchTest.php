@@ -15,7 +15,7 @@ class SwitchTest extends TestCase
                 'blue' => 'Blue'
             ])
             ->assertRender('
-            <div class="form-group">
+            <div class="form-group optional">
                 <label for="colors"> Colors </label>
                 <div class="custom-control custom-switch">
                   <input type="checkbox" name="colors[]" class="custom-control-input" id="switch-orange">

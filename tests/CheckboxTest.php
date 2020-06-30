@@ -15,9 +15,10 @@ class CheckboxTest extends TestCase
                 'blue' => 'Blue'
             ])
             ->assertRender('
-            <div id="field-tags" class="form-group">
+            <div id="field-tags" class="form-group optional">
                 <label for="tags">
                     Tags
+                    <span class="badge badge-info">optional</span>
                 </label>
                 <div id="tags-orange" class="form-check">
                     <input type="checkbox" name="tags[]" value="orange" class="form-check-input">
@@ -38,6 +39,8 @@ class CheckboxTest extends TestCase
     /** @test */
     function renders_a_required_checkbox()
     {
+        $this->app['config']->set(['form.highlights_requirement' => 'required']);
+
         $this->makeTemplate('
             <x-field-checkbox name="tags" :options="$options" required></x-field-checkbox>
         ')
@@ -46,10 +49,10 @@ class CheckboxTest extends TestCase
                 'blue' => 'Blue'
             ])
             ->assertRender('
-            <div id="field-tags" class="form-group">
+            <div id="field-tags" class="form-group required">
                 <label for="tags">
                     Tags
-                    <span class="badge badge-info">Required</span>
+                    <span class="badge badge-danger">required</span>
                 </label>
                 <div id="tags-orange" class="form-check">
                     <input type="checkbox" name="tags[]" value="orange" class="form-check-input">
@@ -78,9 +81,10 @@ class CheckboxTest extends TestCase
                 'blue' => 'Blue'
             ])
             ->assertRender('
-            <div id="field-tags" class="form-group">
+            <div id="field-tags" class="form-group optional">
                 <label for="tags">
                     Tags
+                    <span class="badge badge-info">optional</span>
                 </label>
                 <div id="tags-orange" class="form-check">
                     <input type="checkbox" name="tags[]" value="orange" class="form-check-input">

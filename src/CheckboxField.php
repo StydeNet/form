@@ -23,9 +23,9 @@ class CheckboxField extends Field
      */
     public $help;
 
-    public function __construct(Repository $config, $name, $id = null, $help = null, $options = [], $checked = [], $value = 1)
+    public function __construct(Repository $config, $name, $id = null, $required = false, $label = null, $help = null, $options = [], $checked = [], $value = 1)
     {
-        parent::__construct($config, $name);
+        parent::__construct($config, $name, $required, $id, $label);
 
         $this->options = $options;
         $this->checked = $checked;
