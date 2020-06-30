@@ -9,7 +9,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     public function getPackageProviders($app)
     {
         return [
-            'Styde\FormServiceProvider'
+            'Styde\Form\FormServiceProvider'
         ];
     }
 

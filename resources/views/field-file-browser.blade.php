@@ -7,7 +7,10 @@
         <span class="badge badge-info">{{ __('optional') }}</span>
         @endif
     </label>
-    <input name="{{ $name }}" {{ $attributes->merge(['type' => $type, 'class' => $classes,'required' => $required])->except('help') }} id="{{ $name }}">
+    <div class="custom-file">
+        <input type="{{ $type }}" {{ $attributes->merge(['class' => $classes, 'required' => $required, 'id' => $id]) }} name="{{ $name }}">
+        <label class="custom-file-label" for="{{ $name }}"> {{ $label }} </label>
+    </div>
     @if($help)
     <small id="{{ $name }}Help" class="form-text text-muted">{{ $help }}</small>
     @endif
