@@ -25,5 +25,4 @@ class RadioTest extends TestCase
             </div>
         ');
     }
-
 }

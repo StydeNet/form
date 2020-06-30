@@ -8,5 +8,4 @@ class NumberField extends Field
      * @var string
      */
     public $type = 'number';
-
 }

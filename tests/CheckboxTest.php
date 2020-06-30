@@ -102,5 +102,4 @@ class CheckboxTest extends TestCase
             </div>
         ');
     }
-
 }

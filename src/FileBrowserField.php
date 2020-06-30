@@ -18,5 +18,4 @@ class FileBrowserField extends Field
     {
         return view('styde-form::field-file-browser');
     }
-
 }
