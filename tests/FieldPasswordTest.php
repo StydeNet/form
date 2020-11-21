@@ -7,7 +7,7 @@ class FieldPasswordTest extends TestCase
     /** @test */
     function renders_an_optional_password_field()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-password name="name"></x-field-password>
         ')->assertRender('
             <div class="form-group optional">
@@ -22,7 +22,7 @@ class FieldPasswordTest extends TestCase
     {
         $this->app['config']->set(['form.highlights_requirement' => 'required']);
 
-        $this->makeTemplate('
+        $this->template('
             <x-field-password name="name" required></x-field-password>
         ')->assertRender('
             <div class="form-group required">

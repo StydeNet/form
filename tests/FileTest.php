@@ -7,13 +7,13 @@ class FileTest extends TestCase
     /** @test */
     function renders_an_optional_file_field()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-file name="name"></x-field-file>
         ')->assertRender('
             <div class="form-group optional">
                 <label for="name">
                     Name
-                    <span class="badge badge-info">optional</span> 
+                    <span class="badge badge-info">optional</span>
                 </label>
                 <input name="name" type="file" class="form-control-file"  id="name">
             </div>
@@ -23,7 +23,7 @@ class FileTest extends TestCase
     /** @test */
     function renders_a_required_file_field()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-file name="name" required></x-field-file>
         ')->assertRender('
             <div class="form-group required">
@@ -38,7 +38,7 @@ class FileTest extends TestCase
     /** @test */
     public function renders_a_file_field_with_a_custom_label()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-file name="name" label="My Label"></x-field-file>
         ')->assertRender('
             <div class="form-group optional">
@@ -54,7 +54,7 @@ class FileTest extends TestCase
     /** @test */
     public function renders_a_file_field_with_an_help_text()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-file name="name" help="This is the help text."></x-field-file>
         ')->assertRender('
             <div class="form-group optional">

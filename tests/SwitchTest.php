@@ -7,7 +7,7 @@ class SwitchTest extends TestCase
     /** @test */
     function renders_optional_switches()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-switch name="colors" :options="$options"></x-field-switch>
         ')
             ->withData('options', [

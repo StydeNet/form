@@ -7,7 +7,7 @@ class FieldNumberTest extends TestCase
     /** @test */
     function renders_an_optional_number_field()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-number name="name"></x-field-number>
         ')->assertRender('
             <div class="form-group optional">

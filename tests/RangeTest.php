@@ -7,7 +7,7 @@ class RangeTest extends TestCase
     /** @test */
     function renders_an_optional_range_field()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-range name="quantity" min="0" max="5"></x-field-range>
         ')->assertRender('
             <div class="form-group optional">

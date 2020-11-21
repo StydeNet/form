@@ -7,7 +7,7 @@ class CheckboxTest extends TestCase
     /** @test */
     function renders_an_optional_checkbox()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-checkbox name="tags" :options="$options"></x-field-checkbox>
         ')
             ->withData('options', [
@@ -41,7 +41,7 @@ class CheckboxTest extends TestCase
     {
         $this->app['config']->set(['form.highlights_requirement' => 'required']);
 
-        $this->makeTemplate('
+        $this->template('
             <x-field-checkbox name="tags" :options="$options" required></x-field-checkbox>
         ')
             ->withData('options', [
@@ -73,7 +73,7 @@ class CheckboxTest extends TestCase
     /** @test */
     function renders_a_checkbox_with_help_text()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-checkbox name="tags" :options="$options" help="This is the help text."></x-field-checkbox>
         ')
             ->withData('options', [

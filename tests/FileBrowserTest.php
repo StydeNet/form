@@ -7,7 +7,7 @@ class FileBrowserTest extends TestCase
     /** @test */
     function renders_an_optional_file_browser_field()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-file-browser name="name"></x-field-file-browser>
         ')->assertRender('
             <div class="form-group optional">

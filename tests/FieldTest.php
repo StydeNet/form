@@ -16,7 +16,7 @@ class FieldTest extends TestCase
     /** @test */
     function renders_an_optional_field()
     {
-        $this->makeTemplate('<x-field name="name" />')
+        $this->template('<x-field name="name" />')
             ->assertRender('
               <div class="form-group optional">
                 <label for="name"> Name </label>
@@ -28,7 +28,7 @@ class FieldTest extends TestCase
     /** @test */
     function renders_a_required_field()
     {
-        $this->makeTemplate('<x-field name="email" type="email" required />')
+        $this->template('<x-field name="email" type="email" required />')
             ->assertRender('
               <div class="form-group required">
                 <label for="email"> Email </label>
@@ -42,7 +42,7 @@ class FieldTest extends TestCase
     {
         $this->app['config']->set(['form.highlights_requirement' => 'required']);
 
-        $this->makeTemplate('<x-field name="email" type="email" required />')
+        $this->template('<x-field name="email" type="email" required />')
             ->assertRender('
               <div class="form-group required">
                 <label for="email">
@@ -59,7 +59,7 @@ class FieldTest extends TestCase
     {
         $this->app['config']->set(['form.highlights_requirement' => 'optional']);
 
-        $this->makeTemplate('<x-field name="email" type="email" />')
+        $this->template('<x-field name="email" type="email" />')
             ->assertRender('
               <div class="form-group optional">
                 <label for="email">
@@ -80,8 +80,8 @@ class FieldTest extends TestCase
 //            '*.required' => 'Obligatorio',
 //        ], 'es');
 
-        $this->makeTemplate('<x-field name="email" type="email" required />')
-            ->assertContain('<span class="badge badge-danger">Obligatorio</span>');
+        $this->template('<x-field name="email" type="email" required />')
+            ->assertContains('<span class="badge badge-danger">Obligatorio</span>');
     }
 
     /** @test */
@@ -93,8 +93,8 @@ class FieldTest extends TestCase
 //            '*.optional' => 'Opcional',
 //        ], 'es');
 
-        $this->makeTemplate('<x-field name="email" type="email" />')
-            ->assertContain('<span class="badge badge-info">Opcional</span>')
-            ->assertContain('<span class="badge badge-info">Opcional</span>');
+        $this->template('<x-field name="email" type="email" />')
+            ->assertContains('<span class="badge badge-info">Opcional</span>')
+            ->assertContains('<span class="badge badge-info">Opcional</span>');
     }
 }

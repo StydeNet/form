@@ -7,7 +7,7 @@ class FieldTextAreaTest extends TestCase
     /** @test */
     function renders_an_optional_textarea_field()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-textarea name="name"></x-field-textarea>
         ')->assertRender('
             <div class="form-group optional">
@@ -20,7 +20,7 @@ class FieldTextAreaTest extends TestCase
     /** @test */
     function renders_a_required_textarea_field()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-textarea name="name" required></x-field-textarea>
         ')->assertRender('
             <div class="form-group required">
@@ -33,7 +33,7 @@ class FieldTextAreaTest extends TestCase
     /** @test */
     public function renders_a_textarea_field_with_a_custom_label()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-textarea name="name" label="My Label"></x-field-textarea>
         ')->assertRender('
              <div class="form-group optional">
@@ -46,7 +46,7 @@ class FieldTextAreaTest extends TestCase
     /** @test */
     public function renders_a_textarea_field_with_an_help_text()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-textarea name="name" help="This is the help text."></x-field-textarea>
         ')->assertRender('
             <div class="form-group optional">
@@ -60,7 +60,7 @@ class FieldTextAreaTest extends TestCase
     /** @test */
     public function renders_a_textarea_field_with_a_custom_id()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-textarea name="name" id="username"></x-field-textarea>
         ')->assertRender('
             <div class="form-group optional">
@@ -73,7 +73,7 @@ class FieldTextAreaTest extends TestCase
     /** @test */
     public function renders_a_textarea_field_with_a_custom_row_size()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-textarea name="name" rows="6"></x-field-textarea>
         ')->assertRender('
             <div class="form-group optional">

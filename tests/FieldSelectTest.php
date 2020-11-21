@@ -8,7 +8,7 @@ class FieldSelectTest extends TestCase
     /** @test */
     function renders_a_optional_select_field()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-select name="brands" :options="$options"></x-field-select>
         ')
             ->withData('options', [
@@ -32,7 +32,7 @@ class FieldSelectTest extends TestCase
     /** @test */
     function it_adds_an_empty_option_to_select_fields()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-select name="brands" empty="Seleccione"></x-field-select>
         ')->assertRender('
             <div class="form-group optional">
@@ -47,7 +47,7 @@ class FieldSelectTest extends TestCase
     /** @test */
     function renders_a_multiple_select_field()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-select name="brands" :options="$options" multiple></x-field-select>
         ')
             ->withData('options', [

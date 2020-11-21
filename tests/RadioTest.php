@@ -7,7 +7,7 @@ class RadioTest extends TestCase
     /** @test */
     function renders_an_optional_radio()
     {
-        $this->makeTemplate('
+        $this->template('
             <x-field-radio name="color" :options="$options"></x-field-radio>
         ')
             ->withData('options', [

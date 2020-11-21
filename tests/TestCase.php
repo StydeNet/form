@@ -2,25 +2,17 @@
 
 namespace Tests;
 
-use Gajus\Dindent\Indenter;
+use Styde\Whetstone\InteractsWithBlade;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
+    use InteractsWithBlade;
+
     public function getPackageProviders($app)
     {
         return [
-            'Styde\Form\FormServiceProvider'
+            'Styde\Form\FormServiceProvider',
+            'Styde\Whetstone\WhetstoneServiceProvider',
         ];
-    }
-
-    protected function assertTemplateRenders($expectedHtml, $actualTemplate)
-    {
-        $this->makeTemplate($actualTemplate)
-            ->assertRender($expectedHtml);
-    }
-
-    protected function makeTemplate($actualTemplate): Template
-    {
-        return $this->app[Template::class]->setContent($actualTemplate);
     }
 }
