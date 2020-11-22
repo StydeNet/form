@@ -72,4 +72,15 @@ abstract class Field extends Component
 
         return false;
     }
+
+    /**
+     * Return the name without brackets for a multi select
+     *
+     * @param string $name
+     * @return string
+     */
+    protected function cleanName(string $name)
+    {
+        return str_replace('[]', '', $name);
+    }
 }
