@@ -107,4 +107,24 @@ abstract class Field extends Component
     {
         return $label ? $label : ucfirst(str_replace('_', ' ', $this->cleanName));
     }
+
+    /**
+     * Obtains the value of the input, which can be passed as an attribute to the component
+     * or obtained from the form model, both checked in the old function.
+     *
+     * @param string|null $value
+     * @return string|null
+     */
+    protected function value(?string $value)
+    {
+        $model = $this->cache->get('b-model');
+
+        if (is_object($model)) {
+            if (!in_array($this->name, $model->getHidden())) {
+                return old($this->name, $model->{$this->cleanName});
+            }
+        }
+
+        return old($this->name, $value);
+    }
 }
