@@ -48,4 +48,28 @@ abstract class Field extends Component
     {
         return $has_error ? sprintf('%s is-invalid', $this->classes) : $this->classes;
     }
+
+    /**
+     * Returns highlights attributes
+     *
+     * @param string|null $attribute
+     * @return string|null
+     */
+    public function highlights(string $attribute = null)
+    {
+        if ($this->config->get('form.highlights.required.activated') && $this->required) {
+            if (is_null($attribute))
+                return true;
+
+            return $this->config->get('form.highlights.required.' . $attribute);
+
+        } elseif ($this->config->get('form.highlights.optional.activated')) {
+            if (is_null($attribute))
+                return true;
+
+            return $this->config->get('form.highlights.optional.' . $attribute);
+        }
+
+        return false;
+    }
 }
