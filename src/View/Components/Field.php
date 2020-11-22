@@ -95,4 +95,16 @@ abstract class Field extends Component
     {
         return $id ? $id : sprintf('field-%s', $this->cleanName);
     }
+
+    /**
+     * Gets the label for the input, which can be passed as an
+     * attribute or obtained from the input name
+     *
+     * @param string|null $label
+     * @return string
+     */
+    protected function label(?string $label)
+    {
+        return $label ? $label : ucfirst(str_replace('_', ' ', $this->cleanName));
+    }
 }
