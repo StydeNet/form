@@ -17,6 +17,9 @@ abstract class Field extends Component
     /** @var Cache */
     private $cache;
 
+    /** @var string Input name sanitized */
+    public $cleanName;
+
     /** @var string Input name */
     public $name;
 
