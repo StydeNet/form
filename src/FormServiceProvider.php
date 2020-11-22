@@ -62,6 +62,7 @@ class FormServiceProvider extends ServiceProvider
             \Styde\Form\View\Components\Fields\Textarea::class => 'textarea',
             \Styde\Form\View\Components\Fields\Select::class => 'select',
             \Styde\Form\View\Components\Fields\Radio::class => 'radio',
+            \Styde\Form\View\Components\Fields\Checkbox::class => 'checkbox',
             \Styde\Form\Field::class => 'field',
             \Styde\Form\PasswordField::class => 'field-password',
             \Styde\Form\NumberField::class => 'field-number',
