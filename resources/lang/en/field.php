@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'required' => 'required',
-    'optional' => 'optional',
+    'required' => 'Required',
+    'optional' => 'Optional',
 ];
