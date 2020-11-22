@@ -39,6 +39,31 @@ abstract class Field extends Component
     public $required;
 
     /**
+     * Field constructor.
+     *
+     * @param Config $config
+     * @param Cache $cache
+     * @param string $name
+     * @param string|null $id
+     * @param string|null $label
+     * @param string|null $value
+     * @param string|null $help
+     * @param string|null $required
+     */
+    public function __construct(Config $config, Cache $cache, string $name, string $id = null, string $label = null, string $value = null, string $help = null, string $required = null)
+    {
+        $this->config = $config;
+        $this->cache = $cache;
+        $this->name = $name;
+        $this->cleanName = $this->cleanName($name);
+        $this->label = $this->label($label);
+        $this->value = $this->value($value);
+        $this->id = $this->id($id);
+        $this->required = !is_null($required);
+        $this->help = $help;
+    }
+
+    /**
      * Returns css style for control
      *
      * @param bool $has_error
