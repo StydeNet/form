@@ -58,6 +58,7 @@ class FormServiceProvider extends ServiceProvider
     {
         return [
             \Styde\Form\View\Components\Form::class => 'form',
+            \Styde\Form\View\Components\Fields\Input::class => 'input',
             \Styde\Form\Field::class => 'field',
             \Styde\Form\PasswordField::class => 'field-password',
             \Styde\Form\NumberField::class => 'field-number',
