@@ -37,4 +37,15 @@ abstract class Field extends Component
 
     /** @var bool Required indicator */
     public $required;
+
+    /**
+     * Returns css style for control
+     *
+     * @param bool $has_error
+     * @return string
+     */
+    public function styles(bool $has_error)
+    {
+        return $has_error ? sprintf('%s is-invalid', $this->classes) : $this->classes;
+    }
 }
