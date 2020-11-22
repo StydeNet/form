@@ -16,4 +16,22 @@ abstract class Field extends Component
 
     /** @var Cache */
     private $cache;
+
+    /** @var string Input name */
+    public $name;
+
+    /** @var string Input id */
+    public $id;
+
+    /** @var string Input label */
+    public $label;
+
+    /** @var string|null Input value */
+    public $value;
+
+    /** @var string|null Input help */
+    public $help;
+
+    /** @var bool Required indicator */
+    public $required;
 }
