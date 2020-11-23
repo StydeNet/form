@@ -2,8 +2,8 @@
 
 namespace Styde\Form\View\Components\Fields;
 
-use Illuminate\Cache\Repository as Cache;
 use Illuminate\Config\Repository as Config;
+use Styde\Form\Support\CurrentModel;
 use Styde\Form\View\Components\Field;
 
 class Textarea extends Field
@@ -15,7 +15,7 @@ class Textarea extends Field
      * Textarea constructor.
      *
      * @param Config $config
-     * @param Cache $cache
+     * @param CurrentModel $currentModel
      * @param string $name
      * @param string|null $id
      * @param string|null $label
@@ -24,9 +24,9 @@ class Textarea extends Field
      * @param string|null $help
      * @param string|null $required
      */
-    public function __construct(Config $config, Cache $cache, string $name, string $id = null, string $label = null, string $value = null, string $rows = "3", string $help = null, string $required = null)
+    public function __construct(Config $config, CurrentModel $currentModel, string $name, string $id = null, string $label = null, string $value = null, string $rows = "3", string $help = null, string $required = null)
     {
-        parent::__construct($config, $cache, $name, $id, $label, $value, $help, $required);
+        parent::__construct($config, $currentModel, $name, $id, $label, $value, $help, $required);
 
         $this->rows = $rows;
     }
