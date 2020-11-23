@@ -2,9 +2,9 @@
 
 namespace Styde\Form\View\Components\Fields;
 
-use Illuminate\Cache\Repository as Cache;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Support\Collection;
+use Styde\Form\Support\CurrentModel;
 use Styde\Form\View\Components\Field;
 
 class Select extends Field
@@ -25,7 +25,7 @@ class Select extends Field
      * Select constructor.
      *
      * @param Config $config
-     * @param Cache $cache
+     * @param CurrentModel $currentModel
      * @param string $name
      * @param array $options
      * @param string|null $id
@@ -36,9 +36,9 @@ class Select extends Field
      * @param string|null $required
      * @param string|null $multiple
      */
-    public function __construct(Config $config, Cache $cache, string $name, array $options = [], string $id = null, string $label = null, string $value = null, string $empty = null, string $help = null, string $required = null, string $multiple = null)
+    public function __construct(Config $config, CurrentModel $currentModel, string $name, array $options = [], string $id = null, string $label = null, string $value = null, string $empty = null, string $help = null, string $required = null, string $multiple = null)
     {
-        parent::__construct($config, $cache, $name, $id, $label, $value, $help, $required);
+        parent::__construct($config, $currentModel, $name, $id, $label, $value, $help, $required);
 
         $this->options = $options;
         $this->empty = $empty;
