@@ -3,8 +3,8 @@
 namespace Styde\Form\View\Components\Fields;
 
 use Illuminate\Config\Repository as Config;
-use Illuminate\Cache\Repository as Cache;
 use InvalidArgumentException;
+use Styde\Form\Support\CurrentModel;
 use Styde\Form\View\Components\Field;
 
 class Input extends Field
@@ -22,7 +22,7 @@ class Input extends Field
      * Input constructor.
      *
      * @param Config $config
-     * @param Cache $cache
+     * @param CurrentModel $currentModel
      * @param string $type
      * @param string $name
      * @param string|null $id
@@ -31,12 +31,12 @@ class Input extends Field
      * @param string|null $help
      * @param string|null $required
      */
-    public function __construct(Config $config, Cache $cache, string $type, string $name, string $id = null, string $label = null, string $value = null, string $help = null, string $required = null)
+    public function __construct(Config $config, CurrentModel $currentModel, string $type, string $name, string $id = null, string $label = null, string $value = null, string $help = null, string $required = null)
     {
         if (!in_array($type, self::TYPES))
             throw new InvalidArgumentException(sprintf('Expected [%s] obtaining "%s"', implode(', ', self::TYPES), $type));
 
-        parent::__construct($config, $cache, $name, $id, $label, $value, $help, $required);
+        parent::__construct($config, $currentModel, $name, $id, $label, $value, $help, $required);
 
         $this->type = $type;
     }
