@@ -3,6 +3,7 @@
 namespace Styde\Form;
 
 use Illuminate\Support\ServiceProvider;
+use Styde\Form\Support\CurrentModel;
 
 class FormServiceProvider extends ServiceProvider
 {
@@ -40,6 +41,11 @@ class FormServiceProvider extends ServiceProvider
     {
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__ . '/../config/form.php', 'form');
+
+        // Registering Current Model Instance for Forms
+        $this->app->singleton(CurrentModel::class, function ($app) {
+            return new CurrentModel;
+        });
     }
 
     /**
