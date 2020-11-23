@@ -2,9 +2,9 @@
 
 namespace Styde\Form\View\Components;
 
-use Illuminate\Cache\Repository as Cache;
 use Illuminate\Config\Repository as Config;
 use Illuminate\View\Component;
+use Styde\Form\Support\CurrentModel;
 
 abstract class Field extends Component
 {
@@ -14,8 +14,8 @@ abstract class Field extends Component
     /** @var Config */
     private $config;
 
-    /** @var Cache */
-    private $cache;
+    /** @var CurrentModel */
+    private $currentModel;
 
     /** @var string Input name sanitized */
     public $cleanName;
@@ -42,7 +42,7 @@ abstract class Field extends Component
      * Field constructor.
      *
      * @param Config $config
-     * @param Cache $cache
+     * @param CurrentModel $currentModel
      * @param string $name
      * @param string|null $id
      * @param string|null $label
@@ -50,10 +50,10 @@ abstract class Field extends Component
      * @param string|null $help
      * @param string|null $required
      */
-    public function __construct(Config $config, Cache $cache, string $name, string $id = null, string $label = null, string $value = null, string $help = null, string $required = null)
+    public function __construct(Config $config, CurrentModel $currentModel, string $name, string $id = null, string $label = null, string $value = null, string $help = null, string $required = null)
     {
         $this->config = $config;
-        $this->cache = $cache;
+        $this->currentModel = $currentModel;
         $this->name = $name;
         $this->cleanName = $this->cleanName($name);
         $this->label = $this->label($label);
@@ -142,7 +142,7 @@ abstract class Field extends Component
      */
     protected function value(?string $value)
     {
-        $model = $this->cache->get('b-model');
+        $model = $this->currentModel->get();
 
         if (is_object($model)) {
             if (!in_array($this->name, $model->getHidden())) {
