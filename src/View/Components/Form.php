@@ -2,33 +2,30 @@
 
 namespace Styde\Form\View\Components;
 
-use Illuminate\Cache\Repository as Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\Component;
+use Styde\Form\Support\CurrentModel;
 
 class Form extends Component
 {
     /** @var string Form method */
     public $method;
 
-    /** @var Cache Model */
-    private $cache;
+    /** @var CurrentModel Current model in form */
+    private $currentModel;
 
     /**
      * Form constructor.
      *
-     * @param Cache $cache
+     * @param CurrentModel $currentModel
      * @param string $method
      * @param Model|null $model
      */
-    public function __construct(Cache $cache, string $method = 'get', Model $model = null)
+    public function __construct(CurrentModel $currentModel, string $method = 'get', Model $model = null)
     {
         $this->method = $method;
-        $this->cache = $cache;
-
-        if ($model) {
-            $this->cache->put('b-model', $model);
-        }
+        $this->currentModel = $currentModel;
+        $this->currentModel->set($model);
     }
 
     /**
@@ -36,7 +33,7 @@ class Form extends Component
      */
     public function __destruct()
     {
-        $this->cache->forget('b-model');
+        $this->currentModel->remove();
     }
 
     /**
