@@ -12,4 +12,13 @@ class FormGroupTest extends TestCase
                 <div id="field-group-name" class="form-group"></div>
             ');
     }
+
+    /** @test */
+    function render_a_form_group_with_custom_id()
+    {
+        $this->template('<x-form-group id="group-id" name="name"/>')
+            ->assertRender('
+                <div id="group-id" class="form-group"></div>
+            ');
+    }
 }
