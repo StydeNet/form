@@ -1,5 +1,5 @@
 <x-form-group :name="$cleanName">
-    <label for="{{ $id }}">{{ $label }}</label>
+    <x-label :for="$id">{{ $label }}</x-label>
 
     <input type="text" id="{{ $id }}" name="{{ $name }}" value="{{ $value }}"
         {{ $attributes->merge(['class' => $styles($errors->has($cleanName))]) }}>
