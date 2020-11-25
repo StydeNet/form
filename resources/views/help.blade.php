@@ -1,1 +1,1 @@
-<small id="{{ $id }}" class="form-text text-muted">{{ $slot }}</small>
+<small {{ $attributes->merge(['class' => 'form-text text-muted']) }}>{{ $slot }}</small>
