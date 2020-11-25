@@ -2,6 +2,7 @@
 
 namespace Tests\Fields\Inputs;
 
+use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use Tests\TestCase;
 
@@ -54,5 +55,24 @@ class TextTest extends TestCase
                     <input type="text" id="field-name" name="name" value="" class="form-control">
                 </div>
             ');
+    }
+
+    /** @test */
+    function check_that_help_text_is_displayed()
+    {
+        $this->template('<x-input-text name="name" help="This is a help text."/>')
+            ->assertContains('<small class="form-text text-muted">This is a help text.</small>');
+    }
+
+    /** @test */
+    function check_that_error_text_is_displayed()
+    {
+        $this->app['view']->share('errors',
+            (new ViewErrorBag())
+                ->put('default', new MessageBag(['name' => 'Invalid values']))
+        );
+
+        $this->template('<x-input-text name="name"/>')
+            ->assertContains('<div class="invalid-feedback">Invalid values</div>');
     }
 }
