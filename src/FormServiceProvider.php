@@ -60,6 +60,7 @@ class FormServiceProvider extends ServiceProvider
             \Styde\Form\View\Components\FormGroup::class => 'form-group',
             \Styde\Form\View\Components\Label::class => 'label',
             \Styde\Form\View\Components\Help::class => 'help',
+            \Styde\Form\View\Components\Feedback::class => 'feedback',
             \Styde\Form\View\Components\Fields\Inputs\Text::class => 'input-text',
             \Styde\Form\View\Components\Fields\Input::class => 'input',
             \Styde\Form\View\Components\Fields\Textarea::class => 'textarea',
