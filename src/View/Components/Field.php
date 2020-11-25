@@ -99,6 +99,32 @@ abstract class Field extends Component
     }
 
     /**
+     * Returns the highlight of required and optional if they are active
+     *
+     * @return string|null
+     */
+    public function highlight()
+    {
+        if ($this->config->get('form.highlights_requirement') === 'required' && $this->isRequired())
+            return __('styde-form::field.required');
+
+        if ($this->config->get('form.highlights_requirement') === 'optional' && !$this->isRequired())
+            return __('styde-form::field.optional');
+
+        return null;
+    }
+
+    /**
+     * Check if the field is required
+     *
+     * @return bool
+     */
+    public function isRequired()
+    {
+        return !is_null($this->attributes->get('required'));
+    }
+
+    /**
      * Return the name without brackets for a multi select
      *
      * @param string $name
