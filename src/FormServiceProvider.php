@@ -57,6 +57,7 @@ class FormServiceProvider extends ServiceProvider
     {
         return [
             \Styde\Form\View\Components\Form::class => 'form',
+            \Styde\Form\View\Components\Fields\Inputs\Text::class => 'input-text',
             \Styde\Form\View\Components\Fields\Input::class => 'input',
             \Styde\Form\View\Components\Fields\Textarea::class => 'textarea',
             \Styde\Form\View\Components\Fields\Select::class => 'select',
