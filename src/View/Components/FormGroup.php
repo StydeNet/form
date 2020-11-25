@@ -8,6 +8,20 @@ use Styde\Form\Support\CurrentModel;
 
 class FormGroup extends Component
 {
+    /** @var string */
+    public $id;
+
+    /**
+     * FormGroup constructor.
+     *
+     * @param string|null $id
+     * @param string|null $name
+     */
+    public function __construct(string $id = null, string $name = null)
+    {
+        $this->id = $this->id($id, $name);
+    }
+
     /**
      * Get the view / contents that represent the component.
      *
@@ -16,5 +30,19 @@ class FormGroup extends Component
     public function render()
     {
         return view('styde-form::form-group');
+    }
+
+    /**
+     * Gets the id for the input, which can be passed as an
+     * attribute or obtained from the input name
+     *
+     * @param string|null $id
+     * @param string|null $name
+     *
+     * @return string|null
+     */
+    protected function id(string $id = null, string $name = null)
+    {
+        return $id ?: sprintf('field-group-%s', $name);
     }
 }
