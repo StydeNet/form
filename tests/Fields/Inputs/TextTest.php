@@ -20,7 +20,7 @@ class TextTest extends TestCase
         $this->template('<x-input-text name="name"/>')
             ->assertRender('
                 <div id="field-group-name" class="form-group">
-                    <label for="field-name">Name</label>
+                    <label for="field-name"> Name </label>
                     <input type="text" id="field-name" name="name" value="" class="form-control">
                 </div>
             ');
