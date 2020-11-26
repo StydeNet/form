@@ -2,9 +2,9 @@
 
 namespace Styde\Form\View\Components\Fields\Inputs;
 
-use Styde\Form\View\Components\Field;
+use Styde\Form\View\Components\Fields\Input;
 
-class Url extends Field
+class Url extends Input
 {
     /**
      * Get the view / contents that represent the component.
