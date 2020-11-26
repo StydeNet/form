@@ -2,10 +2,29 @@
 
 namespace Styde\Form\View\Components\Fields\Selectables;
 
+use Illuminate\Config\Repository as Config;
+use Styde\Form\Support\CurrentModel;
 use Styde\Form\View\Components\Fields\Selectable;
 
 class Checkbox extends Selectable
 {
+    /**
+     * Checkbox constructor.
+     *
+     * @param Config $config
+     * @param CurrentModel $currentModel
+     * @param string $name
+     * @param string $option
+     * @param string|null $id
+     * @param string|null $label
+     * @param string|null $value
+     * @param string|null $help
+     */
+    public function __construct(Config $config, CurrentModel $currentModel, string $name, string $option = 'true', string $id = null, string $label = null, string $value = null, string $help = null)
+    {
+        parent::__construct($config, $currentModel, $name, $option, null, $id, $label, $value, $help);
+    }
+
     /**
      * Get the view / contents that represent the component.
      *
@@ -24,6 +43,6 @@ class Checkbox extends Selectable
      */
     public function isChecked(string $key)
     {
-        return $key == $this->value ? ' checked' : '';
+        return $this->value || $key == $this->value ? ' checked' : '';
     }
 }
