@@ -1,12 +1,12 @@
 <?php
 
-namespace Styde\Form\View\Components\Fields;
+namespace Styde\Form\View\Components\Fields\Inputs;
 
 use Illuminate\Config\Repository as Config;
 use Styde\Form\Support\CurrentModel;
-use Styde\Form\View\Components\Field;
+use Styde\Form\View\Components\Fields\Input;
 
-class Textarea extends Field
+class Textarea extends Input
 {
     /** @var string */
     public $rows;
@@ -20,13 +20,12 @@ class Textarea extends Field
      * @param string|null $id
      * @param string|null $label
      * @param string|null $value
-     * @param string $rows
      * @param string|null $help
-     * @param string|null $required
+     * @param string $rows
      */
-    public function __construct(Config $config, CurrentModel $currentModel, string $name, string $id = null, string $label = null, string $value = null, string $rows = "3", string $help = null, string $required = null)
+    public function __construct(Config $config, CurrentModel $currentModel, string $name, string $id = null, string $label = null, string $value = null, string $help = null, string $rows = '3')
     {
-        parent::__construct($config, $currentModel, $name, $id, $label, $value, $help, $required);
+        parent::__construct($config, $currentModel, $name, $id, $label, $value, $help);
 
         $this->rows = $rows;
     }
@@ -38,6 +37,6 @@ class Textarea extends Field
      */
     public function render()
     {
-        return view('styde-form::fields.textarea');
+        return view('styde-form::fields.inputs.textarea');
     }
 }
