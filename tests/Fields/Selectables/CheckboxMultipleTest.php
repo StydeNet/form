@@ -18,27 +18,27 @@ class CheckboxMultipleTest extends TestCase
     /** @test */
     function renders_a_optional_checkbox_field()
     {
-        $this->template('<x-checkbox-multiple name="is_admin" :options="$options"/>')
+        $this->template('<x-checkbox-multiple name="languages[]" :options="$options"/>')
             ->withData('options', [
                 'js' => 'Javascript',
                 'php' => 'PHP',
                 'c#' => 'CSharp'
             ])
             ->assertRender('
-                <div id="field-group-is_admin" class="form-group">
-                    <label > Is admin <span class="badge badge-danger">Optional</span> </label>
+                <div id="field-group-languages" class="form-group">
+                    <label > Languages <span class="badge badge-danger">Optional</span> </label>
                     <br>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-js" name="is_admin" value="js" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-js">Javascript</label>
+                        <input type="checkbox" id="field-languages-js" name="languages[]" value="js" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-js">Javascript</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-php" name="is_admin" value="php" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-php">PHP</label>
+                        <input type="checkbox" id="field-languages-php" name="languages[]" value="php" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-php">PHP</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-c#" name="is_admin" value="c#" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-c#">CSharp</label>
+                        <input type="checkbox" id="field-languages-c#" name="languages[]" value="c#" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-c#">CSharp</label>
                     </div>
                 </div>
             ');
@@ -47,27 +47,27 @@ class CheckboxMultipleTest extends TestCase
     /** @test */
     function renders_a_optional_checkbox_field_inline()
     {
-        $this->template('<x-checkbox-multiple class="custom-control-inline" name="is_admin" :options="$options"/>')
+        $this->template('<x-checkbox-multiple class="custom-control-inline" name="languages[]" :options="$options"/>')
             ->withData('options', [
                 'js' => 'Javascript',
                 'php' => 'PHP',
                 'c#' => 'CSharp'
             ])
             ->assertRender('
-                <div id="field-group-is_admin" class="form-group">
-                    <label > Is admin <span class="badge badge-danger">Optional</span> </label>
+                <div id="field-group-languages" class="form-group">
+                    <label > Languages <span class="badge badge-danger">Optional</span> </label>
                     <br>
                     <div class="custom-control custom-checkbox custom-control-inline">
-                        <input type="checkbox" id="field-is_admin-js" name="is_admin" value="js" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-js">Javascript</label>
+                        <input type="checkbox" id="field-languages-js" name="languages[]" value="js" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-js">Javascript</label>
                     </div>
                     <div class="custom-control custom-checkbox custom-control-inline">
-                        <input type="checkbox" id="field-is_admin-php" name="is_admin" value="php" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-php">PHP</label>
+                        <input type="checkbox" id="field-languages-php" name="languages[]" value="php" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-php">PHP</label>
                     </div>
                     <div class="custom-control custom-checkbox custom-control-inline">
-                        <input type="checkbox" id="field-is_admin-c#" name="is_admin" value="c#" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-c#">CSharp</label>
+                        <input type="checkbox" id="field-languages-c#" name="languages[]" value="c#" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-c#">CSharp</label>
                     </div>
                 </div>
             ');
@@ -76,27 +76,27 @@ class CheckboxMultipleTest extends TestCase
     /** @test */
     function renders_a_optional_checkbox_with_custom_label()
     {
-        $this->template('<x-checkbox-multiple name="is_admin" label="Is Administrator" :options="$options"/>')
+        $this->template('<x-checkbox-multiple name="languages[]" label="Is Administrator" :options="$options"/>')
             ->withData('options', [
                 'js' => 'Javascript',
                 'php' => 'PHP',
                 'c#' => 'CSharp'
             ])
             ->assertRender('
-                <div id="field-group-is_admin" class="form-group">
+                <div id="field-group-languages" class="form-group">
                     <label > Is Administrator <span class="badge badge-danger">Optional</span> </label>
                     <br>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-js" name="is_admin" value="js" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-js">Javascript</label>
+                        <input type="checkbox" id="field-languages-js" name="languages[]" value="js" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-js">Javascript</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-php" name="is_admin" value="php" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-php">PHP</label>
+                        <input type="checkbox" id="field-languages-php" name="languages[]" value="php" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-php">PHP</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-c#" name="is_admin" value="c#" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-c#">CSharp</label>
+                        <input type="checkbox" id="field-languages-c#" name="languages[]" value="c#" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-c#">CSharp</label>
                     </div>
                 </div>
             ');
@@ -105,26 +105,26 @@ class CheckboxMultipleTest extends TestCase
     /** @test */
     function renders_a_optional_checkbox_with_custom_id()
     {
-        $this->template('<x-checkbox-multiple id="custom-id" name="is_admin" :options="$options"/>')
+        $this->template('<x-checkbox-multiple id="custom-id" name="languages[]" :options="$options"/>')
             ->withData('options', [
                 'js' => 'Javascript',
                 'php' => 'PHP',
                 'c#' => 'CSharp'
             ])
             ->assertRender('
-                <div id="field-group-is_admin" class="form-group">
-                    <label > Is admin <span class="badge badge-danger">Optional</span> </label>
+                <div id="field-group-languages" class="form-group">
+                    <label > Languages <span class="badge badge-danger">Optional</span> </label>
                     <br>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="custom-id-js" name="is_admin" value="js" class="custom-control-input" >
+                        <input type="checkbox" id="custom-id-js" name="languages[]" value="js" class="custom-control-input" >
                         <label class="custom-control-label" for="custom-id-js">Javascript</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="custom-id-php" name="is_admin" value="php" class="custom-control-input" >
+                        <input type="checkbox" id="custom-id-php" name="languages[]" value="php" class="custom-control-input" >
                         <label class="custom-control-label" for="custom-id-php">PHP</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="custom-id-c#" name="is_admin" value="c#" class="custom-control-input" >
+                        <input type="checkbox" id="custom-id-c#" name="languages[]" value="c#" class="custom-control-input" >
                         <label class="custom-control-label" for="custom-id-c#">CSharp</label>
                     </div>
                 </div>
@@ -134,27 +134,27 @@ class CheckboxMultipleTest extends TestCase
     /** @test */
     function renders_a_optional_checkbox_with_checked()
     {
-        $this->template('<x-checkbox-multiple name="is_admin" checked :options="$options"/>')
+        $this->template('<x-checkbox-multiple name="languages[]" checked :options="$options"/>')
             ->withData('options', [
                 'js' => 'Javascript',
                 'php' => 'PHP',
                 'c#' => 'CSharp'
             ])
             ->assertRender('
-                <div id="field-group-is_admin" class="form-group">
-                    <label > Is admin <span class="badge badge-danger">Optional</span> </label>
+                <div id="field-group-languages" class="form-group">
+                    <label > Languages <span class="badge badge-danger">Optional</span> </label>
                     <br>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-js" name="is_admin" value="js" class="custom-control-input" checked="checked">
-                        <label class="custom-control-label" for="field-is_admin-js">Javascript</label>
+                        <input type="checkbox" id="field-languages-js" name="languages[]" value="js" class="custom-control-input" checked="checked">
+                        <label class="custom-control-label" for="field-languages-js">Javascript</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-php" name="is_admin" value="php" class="custom-control-input" checked="checked">
-                        <label class="custom-control-label" for="field-is_admin-php">PHP</label>
+                        <input type="checkbox" id="field-languages-php" name="languages[]" value="php" class="custom-control-input" checked="checked">
+                        <label class="custom-control-label" for="field-languages-php">PHP</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-c#" name="is_admin" value="c#" class="custom-control-input" checked="checked">
-                        <label class="custom-control-label" for="field-is_admin-c#">CSharp</label>
+                        <input type="checkbox" id="field-languages-c#" name="languages[]" value="c#" class="custom-control-input" checked="checked">
+                        <label class="custom-control-label" for="field-languages-c#">CSharp</label>
                     </div>
                 </div>
             ');
@@ -163,29 +163,29 @@ class CheckboxMultipleTest extends TestCase
     /** @test */
     function renders_a_optional_checkbox_with_help_text()
     {
-        $this->template('<x-checkbox-multiple name="is_admin" help="This is the help text." :options="$options"/>')
+        $this->template('<x-checkbox-multiple name="languages[]" help="This is the help text." :options="$options"/>')
             ->withData('options', [
                 'js' => 'Javascript',
                 'php' => 'PHP',
                 'c#' => 'CSharp'
             ])
             ->assertRender('
-                <div id="field-group-is_admin" class="form-group">
-                    <label > Is admin <span class="badge badge-danger">Optional</span> </label>
+                <div id="field-group-languages" class="form-group">
+                    <label > Languages <span class="badge badge-danger">Optional</span> </label>
                     <br>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-js" name="is_admin" value="js" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-js">Javascript</label>
+                        <input type="checkbox" id="field-languages-js" name="languages[]" value="js" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-js">Javascript</label>
                         <small class="form-text text-muted">This is the help text.</small>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-php" name="is_admin" value="php" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-php">PHP</label>
+                        <input type="checkbox" id="field-languages-php" name="languages[]" value="php" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-php">PHP</label>
                         <small class="form-text text-muted">This is the help text.</small>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-c#" name="is_admin" value="c#" class="custom-control-input" >
-                        <label class="custom-control-label" for="field-is_admin-c#">CSharp</label>
+                        <input type="checkbox" id="field-languages-c#" name="languages[]" value="c#" class="custom-control-input" >
+                        <label class="custom-control-label" for="field-languages-c#">CSharp</label>
                         <small class="form-text text-muted">This is the help text.</small>
                     </div>
                 </div>
@@ -195,27 +195,27 @@ class CheckboxMultipleTest extends TestCase
     /** @test */
     function renders_an_required_checkbox_field()
     {
-        $this->template('<x-checkbox-multiple name="is_admin" required :options="$options"/>')
+        $this->template('<x-checkbox-multiple name="languages[]" required :options="$options"/>')
             ->withData('options', [
                 'js' => 'Javascript',
                 'php' => 'PHP',
                 'c#' => 'CSharp'
             ])
             ->assertRender('
-                <div id="field-group-is_admin" class="form-group">
-                    <label > Is admin </label>
+                <div id="field-group-languages" class="form-group">
+                    <label > Languages </label>
                     <br>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-js" name="is_admin" value="js" class="custom-control-input" required="required">
-                        <label class="custom-control-label" for="field-is_admin-js">Javascript</label>
+                        <input type="checkbox" id="field-languages-js" name="languages[]" value="js" class="custom-control-input" required="required">
+                        <label class="custom-control-label" for="field-languages-js">Javascript</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-php" name="is_admin" value="php" class="custom-control-input" required="required">
-                        <label class="custom-control-label" for="field-is_admin-php">PHP</label>
+                        <input type="checkbox" id="field-languages-php" name="languages[]" value="php" class="custom-control-input" required="required">
+                        <label class="custom-control-label" for="field-languages-php">PHP</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-c#" name="is_admin" value="c#" class="custom-control-input" required="required">
-                        <label class="custom-control-label" for="field-is_admin-c#">CSharp</label>
+                        <input type="checkbox" id="field-languages-c#" name="languages[]" value="c#" class="custom-control-input" required="required">
+                        <label class="custom-control-label" for="field-languages-c#">CSharp</label>
                     </div>
                 </div>
             ');
@@ -226,27 +226,27 @@ class CheckboxMultipleTest extends TestCase
     {
         $this->app['config']->set(['form.highlights_requirement' => 'required']);
 
-        $this->template('<x-checkbox-multiple name="is_admin" required :options="$options"/>')
+        $this->template('<x-checkbox-multiple name="languages[]" required :options="$options"/>')
             ->withData('options', [
                 'js' => 'Javascript',
                 'php' => 'PHP',
                 'c#' => 'CSharp'
             ])
             ->assertRender('
-                <div id="field-group-is_admin" class="form-group">
-                    <label > Is admin <span class="badge badge-danger">Required</span> </label>
+                <div id="field-group-languages" class="form-group">
+                    <label > Languages <span class="badge badge-danger">Required</span> </label>
                     <br>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-js" name="is_admin" value="js" class="custom-control-input" required="required">
-                        <label class="custom-control-label" for="field-is_admin-js">Javascript</label>
+                        <input type="checkbox" id="field-languages-js" name="languages[]" value="js" class="custom-control-input" required="required">
+                        <label class="custom-control-label" for="field-languages-js">Javascript</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-php" name="is_admin" value="php" class="custom-control-input" required="required">
-                        <label class="custom-control-label" for="field-is_admin-php">PHP</label>
+                        <input type="checkbox" id="field-languages-php" name="languages[]" value="php" class="custom-control-input" required="required">
+                        <label class="custom-control-label" for="field-languages-php">PHP</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-c#" name="is_admin" value="c#" class="custom-control-input" required="required">
-                        <label class="custom-control-label" for="field-is_admin-c#">CSharp</label>
+                        <input type="checkbox" id="field-languages-c#" name="languages[]" value="c#" class="custom-control-input" required="required">
+                        <label class="custom-control-label" for="field-languages-c#">CSharp</label>
                     </div>
                 </div>
             ');
@@ -257,32 +257,32 @@ class CheckboxMultipleTest extends TestCase
     {
         $this->app['view']->share('errors',
             (new ViewErrorBag())
-                ->put('default', new MessageBag(['is_admin' => 'Invalid values']))
+                ->put('default', new MessageBag(['languages' => 'Invalid values']))
         );
 
-        $this->template('<x-checkbox-multiple name="is_admin" label="Administrator?" :options="$options"/>')
+        $this->template('<x-checkbox-multiple name="languages[]" label="Administrator?" :options="$options"/>')
             ->withData('options', [
                 'js' => 'Javascript',
                 'php' => 'PHP',
                 'c#' => 'CSharp'
             ])
             ->assertRender('
-                <div id="field-group-is_admin" class="form-group">
+                <div id="field-group-languages" class="form-group">
                     <label > Administrator? <span class="badge badge-danger">Optional</span> </label>
                     <br>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-js" name="is_admin" value="js" class="custom-control-input is-invalid" >
-                        <label class="custom-control-label" for="field-is_admin-js">Javascript</label>
+                        <input type="checkbox" id="field-languages-js" name="languages[]" value="js" class="custom-control-input is-invalid" >
+                        <label class="custom-control-label" for="field-languages-js">Javascript</label>
                         <div class="invalid-feedback">Invalid values</div>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-php" name="is_admin" value="php" class="custom-control-input is-invalid" >
-                        <label class="custom-control-label" for="field-is_admin-php">PHP</label>
+                        <input type="checkbox" id="field-languages-php" name="languages[]" value="php" class="custom-control-input is-invalid" >
+                        <label class="custom-control-label" for="field-languages-php">PHP</label>
                         <div class="invalid-feedback">Invalid values</div>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" id="field-is_admin-c#" name="is_admin" value="c#" class="custom-control-input is-invalid" >
-                        <label class="custom-control-label" for="field-is_admin-c#">CSharp</label>
+                        <input type="checkbox" id="field-languages-c#" name="languages[]" value="c#" class="custom-control-input is-invalid" >
+                        <label class="custom-control-label" for="field-languages-c#">CSharp</label>
                         <div class="invalid-feedback">Invalid values</div>
                     </div>
                 </div>
