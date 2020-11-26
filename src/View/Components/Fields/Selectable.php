@@ -138,11 +138,11 @@ abstract class Selectable extends Component
         $model = $this->currentModel->get();
 
         if (is_object($model)) {
-            if (!in_array($this->name, $model->getHidden())) {
-                return old($this->name, $model->{$this->cleanName});
+            if (!in_array($this->cleanName, $model->getHidden())) {
+                return old($this->cleanName, $model->{$this->cleanName});
             }
         }
 
-        return old($this->name, $value);
+        return old($this->cleanName, $value);
     }
 }
