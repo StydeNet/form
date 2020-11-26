@@ -65,6 +65,7 @@ class FormServiceProvider extends ServiceProvider
             \Styde\Form\View\Components\Fields\Inputs\Number::class => 'input-number',
             \Styde\Form\View\Components\Fields\Inputs\Password::class => 'input-password',
             \Styde\Form\View\Components\Fields\Inputs\Email::class => 'input-email',
+            \Styde\Form\View\Components\Fields\Inputs\Url::class => 'input-url',
             \Styde\Form\View\Components\Fields\Input::class => 'input',
             \Styde\Form\View\Components\Fields\Textarea::class => 'textarea',
             \Styde\Form\View\Components\Fields\Select::class => 'select',
