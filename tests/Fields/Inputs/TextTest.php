@@ -75,4 +75,22 @@ class TextTest extends TestCase
         $this->template('<x-input-text name="name"/>')
             ->assertContains('<div class="invalid-feedback">Invalid values</div>');
     }
+
+    /** @test */
+    function check_that_error_class_is_displayed()
+    {
+        $this->app['view']->share('errors',
+            (new ViewErrorBag())
+                ->put('default', new MessageBag(['name' => 'Invalid values']))
+        );
+
+        $this->template('<x-input-text name="name"/>')
+            ->assertRender('
+                <div id="field-group-name" class="form-group">
+                    <label for="field-name"> Name <span class="badge badge-danger">Optional</span> </label>
+                    <input type="text" id="field-name" name="name" value="" class="form-control is-invalid">
+                    <div class="invalid-feedback">Invalid values</div>
+                </div>
+            ');
+    }
 }
