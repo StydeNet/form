@@ -44,15 +44,13 @@ class NumberTest extends TestCase
     /** @test */
     function render_field_with_required_highlight()
     {
-        $this->markTestIncomplete();
-
         $this->app['config']->set(['form.highlights_requirement' => 'required']);
 
         $this->template('<x-input-number name="name" required/>')
             ->assertRender('
                 <div id="field-group-name" class="form-group">
                     <label for="field-name"> Name <span class="badge badge-danger">Required</span> </label>
-                    <input type="number" id="field-name" name="name" value="" class="form-control">
+                    <input type="number" id="field-name" name="name" value="" class="form-control" required="required">
                 </div>
             ');
     }
@@ -62,7 +60,7 @@ class NumberTest extends TestCase
     {
         $this->app['translator']->setLocale('es');
 
-        $this->template('<x-input-number name="email" required/>')
+        $this->template('<x-input-number name="email"/>')
             ->assertContains('<span class="badge badge-danger">Opcional</span>');
     }
 
