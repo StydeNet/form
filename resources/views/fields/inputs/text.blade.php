@@ -2,7 +2,7 @@
     <x-label :for="$id" :highlight="$highlight">{{ $label }}</x-label>
 
     <input type="text" id="{{ $id }}" name="{{ $name }}" value="{{ $value }}"
-        {{ $attributes->merge(['class' => $styles($errors->has($cleanName))]) }}>
+        {{ $attributes->merge(['class' => $errors->has($cleanName) ? 'form-control is-invalid' : 'form-control']) }}>
 
     @if($errors->has($cleanName))
         <x-feedback>{{ $errors->first($cleanName) }}</x-feedback>
