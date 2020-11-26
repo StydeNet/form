@@ -58,6 +58,15 @@ class TextTest extends TestCase
     }
 
     /** @test */
+    function renders_an_optional_input_text_with_highlights_in_spanish()
+    {
+        $this->app['translator']->setLocale('es');
+
+        $this->template('<x-input-text name="email" required/>')
+            ->assertContains('<span class="badge badge-danger">Opcional</span>');
+    }
+
+    /** @test */
     function check_that_help_text_is_displayed()
     {
         $this->template('<x-input-text name="name" help="This is a help text."/>')
