@@ -4,9 +4,9 @@ namespace Styde\Form\View\Components\Fields\Inputs;
 
 use Illuminate\Config\Repository as Config;
 use Styde\Form\Support\CurrentModel;
-use Styde\Form\View\Components\Fields\Input;
+use Styde\Form\View\Components\Field;
 
-class Textarea extends Input
+class Textarea extends Field
 {
     /** @var string */
     public $rows;
