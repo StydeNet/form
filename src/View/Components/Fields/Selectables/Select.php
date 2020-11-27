@@ -4,10 +4,13 @@ namespace Styde\Form\View\Components\Fields\Selectables;
 
 use Illuminate\Config\Repository as Config;
 use Styde\Form\Support\CurrentModel;
-use Styde\Form\View\Components\Fields\Selectable;
+use Styde\Form\View\Components\Field;
 
-class Select extends Selectable
+class Select extends Field
 {
+    /** @var array */
+    public $options;
+
     /**
      * Select constructor.
      *
@@ -22,7 +25,9 @@ class Select extends Selectable
      */
     public function __construct(Config $config, CurrentModel $currentModel, string $name, array $options = [], string $id = null, string $label = null, string $value = null, string $help = null)
     {
-        parent::__construct($config, $currentModel, $name, 'null', $options, $id, $label, $value, $help);
+        $this->options = $options;
+
+        parent::__construct($config, $currentModel, $name, $id, $label, $value, $help);
     }
 
     /**
