@@ -61,6 +61,7 @@ class FormServiceProvider extends ServiceProvider
             \Styde\Form\View\Components\Label::class => 'label',
             \Styde\Form\View\Components\Help::class => 'help',
             \Styde\Form\View\Components\Feedback::class => 'feedback',
+            \Styde\Form\View\Components\Fields\Inputs\Input::class => 'input',
             \Styde\Form\View\Components\Fields\Inputs\Text::class => 'input-text',
             \Styde\Form\View\Components\Fields\Inputs\Number::class => 'input-number',
             \Styde\Form\View\Components\Fields\Inputs\Password::class => 'input-password',
