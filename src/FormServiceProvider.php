@@ -14,7 +14,6 @@ class FormServiceProvider extends ServiceProvider
          */
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'styde-form');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'styde-form');
-        $this->loadJsonTranslationsFrom(__DIR__ . '/../resources/lang');
 
         /*
          * Optional methods to load your package assets
