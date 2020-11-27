@@ -75,6 +75,7 @@ class FormServiceProvider extends ServiceProvider
             \Styde\Form\View\Components\Fields\Selectables\RadioMultiple::class => 'radio-multiple',
             \Styde\Form\View\Components\Fields\Selectables\Checkbox::class => 'checkbox',
             \Styde\Form\View\Components\Fields\Selectables\CheckboxMultiple::class => 'checkbox-multiple',
+            \Styde\Form\View\Components\Fields\Selectables\Switche::class => 'switch',
         ];
     }
 }
