@@ -4,10 +4,13 @@ namespace Styde\Form\View\Components\Fields\Selectables;
 
 use Illuminate\Config\Repository as Config;
 use Styde\Form\Support\CurrentModel;
-use Styde\Form\View\Components\Fields\Selectable;
+use Styde\Form\View\Components\Field;
 
-class Radio extends Selectable
+class Radio extends Field
 {
+    /** @var string */
+    public $option;
+
     /**
      * Radio constructor.
      *
@@ -22,7 +25,9 @@ class Radio extends Selectable
      */
     public function __construct(Config $config, CurrentModel $currentModel, string $name, string $option, string $id = null, string $label = null, string $value = null, string $help = null)
     {
-        parent::__construct($config, $currentModel, $name, $option, null, $id, $label, $value, $help);
+        $this->option = $option;
+
+        parent::__construct($config, $currentModel, $name, $id, $label, $value, $help);
     }
 
     /**
