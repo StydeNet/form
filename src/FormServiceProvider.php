@@ -9,12 +9,28 @@ class FormServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'styde-form');
-
-//        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'form');
+        /*
+         * Optional methods to load your package assets
+         */
         $this->loadJsonTranslationsFrom(__DIR__ . '/../resources/lang');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'styde-form');
 
-        $this->app->make('blade.compiler')->components(config('components'));
+        /*
+         * Optional methods to load your package assets
+         */
+        if ($this->app->runningInConsole()) {
+            // Publishing config.
+            $this->publishes([
+                __DIR__ . '/../config/form.php' => config_path('form.php'),
+            ], 'config');
+
+            // Publishing the views.
+            $this->publishes([
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/styde-form'),
+            ], 'views');
+        }
+
+        $this->app['blade.compiler']->components(config('components'));
     }
 
     /**
