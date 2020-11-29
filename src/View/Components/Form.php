@@ -2,21 +2,38 @@
 
 namespace Styde\Form\View\Components;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\Component;
+use Styde\Form\Support\CurrentModel;
 
 class Form extends Component
 {
     /** @var string Form method */
     public $method;
 
+    /** @var CurrentModel Current model in form */
+    private $currentModel;
+
     /**
      * Form constructor.
      *
+     * @param CurrentModel $currentModel
      * @param string $method
+     * @param Model|null $model
      */
-    public function __construct(string $method = 'get')
+    public function __construct(CurrentModel $currentModel, string $method = 'get', Model $model = null)
     {
         $this->method = $method;
+        $this->currentModel = $currentModel;
+        $this->currentModel->set($model);
+    }
+
+    /**
+     * Form destructor.
+     */
+    public function __destruct()
+    {
+        $this->currentModel->remove();
     }
 
     /**
