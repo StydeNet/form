@@ -1,6 +1,6 @@
 <?php
 
-namespace Styde\Form;
+namespace Styde\Form\View\Components;
 
 use Illuminate\View\Component;
 
