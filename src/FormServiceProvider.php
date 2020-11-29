@@ -9,9 +9,6 @@ class FormServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/form.php', 'form');
-        $this->mergeConfigFrom(__DIR__ . '/../config/components.php', 'components');
-
         $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'styde-form');
 
 //        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'form');
@@ -25,6 +22,10 @@ class FormServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Automatically apply the package configuration
+        $this->mergeConfigFrom(__DIR__ . '/../config/form.php', 'form');
+        $this->mergeConfigFrom(__DIR__ . '/../config/components.php', 'components');
+
         // Registering Current Model Instance for Forms
         $this->app->singleton(CurrentModel::class, function ($app) {
             return new CurrentModel;
